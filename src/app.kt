@@ -1,48 +1,42 @@
 import java.time.LocalDate
-import java.time.Period
-import kotlin.math.pow
+import java.util.Scanner
 
-class Paciente {
+fun main() {
 
-    var nome: String = ""
-    var dataNascimento: LocalDate? = null
-    var peso: Int = 0
-    var altura: Double = 0.0
-    var telefone: String = ""
+    val leitor = Scanner(System.`in`)
 
-    fun calcularImc(): Double {
-        // IMC = peso / altura^2
-        return peso / altura.pow(2)
-    }
+    var paciente1= Paciente()
+    var paciente2= Paciente()
+    var paciente3= Paciente()
 
-    fun mostrarDados() {
-        println("Dados do Paciente")
-        println("-------------------------")
-        println("| NOME: $nome")
-        println("| IDADE: ${calcularIdade()}")
-        println("| PESO: $peso")
-        println("| ALTURA: $altura")
-        println("| IMC: ${calcularImc()}")
-        println("| CLASSIFICAÇÃO: ${classificarImc()}")
-        println("-------------------------")
-    }
+    paciente1.nome = "Julia Silva"
+    paciente1.peso = 64
+    paciente1.altura = 1.65
+    paciente1.telefone = "11 94660-0000"
+    paciente1.dataNascimento = LocalDate.of(2006, 12, 13)
+    paciente1.mostrarDados()
 
-    fun classificarImc(): String {
-        val imc = calcularImc()
-        var classificacao = ""
-        if (imc <= 18.5) {
-            classificacao = "Abaixo do Peso"
-        } else if (imc > 18.5 && imc < 25.0) {
-            classificacao = "Peso Ideal"
-        } else {
-            classificacao = "Acima do Peso"
-        }
-        return classificacao
-    }
 
-    fun calcularIdade(): Int {
-        val hoje = LocalDate.now()
-        val idade = Period.between(dataNascimento, hoje).years
-        return idade
-    }
+    paciente2.nome = "Kaike Bueno"
+    paciente2.peso =  84
+    paciente2.altura = 1.80
+    paciente2.telefone = "11 99530-0000"
+    paciente2.dataNascimento = LocalDate.of(2007, 7, 20)
+    paciente2.mostrarDados()
+
+
+    println("Qual o nome do paciente: ")
+    paciente3.nome = leitor.nextLine()
+
+    println("Qual o peso do paciente")
+    paciente3.peso =  leitor.nextInt()
+
+    println("Qual a altura do paciente?")
+    paciente3.altura = leitor.nextDouble()
+
+    println("Qual o telefone do cliente")
+    paciente3.telefone = leitor.nextLine()
+
+    paciente3.dataNascimento = LocalDate.of(2007, 7, 20)
+    paciente3.mostrarDados()
 }
