@@ -1,7 +1,9 @@
 import java.time.LocalDate
 import java.time.Period
 import kotlin.math.pow
-
+//classe paciente
+//programador: bahia
+//data: 04/02/25
 class Paciente {
 
     var nome: String = ""
